@@ -1,0 +1,17 @@
+SEQUENCE Test:
+	B <- A
+		<- poo
+		YIELD
+		B <- A : morepoo
+	J <-> K
+	X -> Y
+		X -> Y : asdf
+		J <- K : yeah
+		YIELD
+
+SEQUENCE Test2:
+	C -> D
+		-> doesitwork
+	P <-> Q
+		-> ihopeso
+		<- metoo

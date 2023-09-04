@@ -1,0 +1,28 @@
+SEQUENCE TellPort:
+	CLIENT <- SERVER
+		<- PortNum
+
+SEQUENCE Command:
+	CLIENT <-> SERVER
+		-> CommandID SERVER YIELD
+		<- Decision
+
+SEQUENCE ChooseIndex:
+	CLIENT <-> SERVER
+		<- RecordCount CLIENT YIELD
+		-> RecordChoice
+
+SEQUENCE SendRecord:
+	SENDER -> RECEIVER
+		-> Record
+
+SEQUENCE ModifyRecord:
+	CLIENT <-> SERVER
+		<- RecordCount CLIENT YIELD
+		-> RecordChoice SERVER YIELD
+		<- Record CLIENT YIELD
+		-> Record
+
+SEQUENCE SendLogFile:
+	SENDER -> RECEIVER
+		-> LogFileChunk
